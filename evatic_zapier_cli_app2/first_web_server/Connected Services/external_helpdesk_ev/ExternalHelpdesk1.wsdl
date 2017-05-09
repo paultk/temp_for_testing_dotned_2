@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schema.evatic.com/2012/10/24" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schema.evatic.com/2012/10/24" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://schema.evatic.com/2012/10/24/Imports">
+      <xsd:import schemaLocation="https://192.168.2.186/EvaticServiceHub/ExternalHelpdesk.svc?xsd=xsd0" namespace="http://schema.evatic.com/2012/10/24" />
+      <xsd:import schemaLocation="https://192.168.2.186/EvaticServiceHub/ExternalHelpdesk.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://192.168.2.186/EvaticServiceHub/ExternalHelpdesk.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Evatic.Common.Service.DataContract.ExternalHelpdesk" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ExternalHelpdeskService_Echo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Echo" />
+  </wsdl:message>
+  <wsdl:message name="ExternalHelpdeskService_Echo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EchoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExternalHelpdeskService_Get_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get" />
+  </wsdl:message>
+  <wsdl:message name="ExternalHelpdeskService_Get_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExternalHelpdeskService_CreateOrUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ExternalHelpdeskService_CreateOrUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExternalHelpdeskService_ListTriggerEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListTriggerEvents" />
+  </wsdl:message>
+  <wsdl:message name="ExternalHelpdeskService_ListTriggerEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListTriggerEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExternalHelpdeskService_CloseTriggerEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:CloseTriggerEvent" />
+  </wsdl:message>
+  <wsdl:message name="ExternalHelpdeskService_CloseTriggerEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CloseTriggerEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExternalHelpdeskService_AddDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDocument" />
+  </wsdl:message>
+  <wsdl:message name="ExternalHelpdeskService_AddDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDocumentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ExternalHelpdeskService">
+    <wsdl:documentation>&lt;description&gt;
+            This service handles the integration to %Evatic %Service handling Task.
+            
+            &lt;/description&gt;</wsdl:documentation>
+    <wsdl:operation name="Echo">
+      <wsdl:documentation>&lt;summary&gt;
+            Use to verify that the service is running.
+            &lt;/summary&gt;
+            &lt;param name="textToEcho"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://schema.evatic.com/2012/10/24/ExternalHelpdeskService/Echo" message="tns:ExternalHelpdeskService_Echo_InputMessage" />
+      <wsdl:output wsaw:Action="http://schema.evatic.com/2012/10/24/ExternalHelpdeskService/EchoResponse" message="tns:ExternalHelpdeskService_Echo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <wsdl:documentation>&lt;summary&gt;
+            Returns a Task that has been imported from an external system.  
+            &lt;/summary&gt;
+            &lt;param name="taskGuid"&gt;&lt;/param&gt;
+            /// &lt;param name="externalSystemGuid"&gt;&lt;/param&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://schema.evatic.com/2012/10/24/ExternalHelpdeskService/Get" message="tns:ExternalHelpdeskService_Get_InputMessage" />
+      <wsdl:output wsaw:Action="http://schema.evatic.com/2012/10/24/ExternalHelpdeskService/GetResponse" message="tns:ExternalHelpdeskService_Get_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrUpdate">
+      <wsdl:documentation>&lt;summary&gt;
+            Import a new a Task or update a exsisting one.
+            It will do an import if TaskGuid is not provided in the request or ExternalProjectNo is not found.
+            It will update existing Task if TaskGuid is provided or ExternalProjectNo is found.
+            &lt;/summary&gt;
+            &lt;param name="projectTask"&gt;&lt;/param&gt;
+            &lt;returns&gt;
+            Task Guid. Null if the Task was not created.
+            &lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://schema.evatic.com/2012/10/24/ExternalHelpdeskService/CreateOrUpdate" message="tns:ExternalHelpdeskService_CreateOrUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://schema.evatic.com/2012/10/24/ExternalHelpdeskService/CreateOrUpdateResponse" message="tns:ExternalHelpdeskService_CreateOrUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListTriggerEvents">
+      <wsdl:documentation>&lt;summary&gt;
+            Retives a list of Events for Task that has been update in %Evatic %Service.
+            If triggers is set up it will make an open event, ready for external system to fetch the updated task.
+            The ExternalSystemGuid is used to retrive events for those Tasks that was imported from the same external system.
+            &lt;/summary&gt;
+            &lt;returns&gt;&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://schema.evatic.com/2012/10/24/ExternalHelpdeskService/ListTriggerEvents" message="tns:ExternalHelpdeskService_ListTriggerEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://schema.evatic.com/2012/10/24/ExternalHelpdeskService/ListTriggerEventsResponse" message="tns:ExternalHelpdeskService_ListTriggerEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseTriggerEvent">
+      <wsdl:documentation>&lt;summary&gt;
+            Close open trigger event.        
+            When external system have finished processing an event from the ListTriggerEvents, it needs to be closed.
+            &lt;/summary&gt;
+            &lt;param name="triggerEvent"&gt;&lt;/param&gt;
+            &lt;returns&gt;0/1&lt;/returns&gt;</wsdl:documentation>
+      <wsdl:input wsaw:Action="http://schema.evatic.com/2012/10/24/ExternalHelpdeskService/CloseTriggerEvent" message="tns:ExternalHelpdeskService_CloseTriggerEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://schema.evatic.com/2012/10/24/ExternalHelpdeskService/CloseTriggerEventResponse" message="tns:ExternalHelpdeskService_CloseTriggerEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDocument">
+      <wsdl:input wsaw:Action="http://schema.evatic.com/2012/10/24/ExternalHelpdeskService/AddDocument" message="tns:ExternalHelpdeskService_AddDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://schema.evatic.com/2012/10/24/ExternalHelpdeskService/AddDocumentResponse" message="tns:ExternalHelpdeskService_AddDocument_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

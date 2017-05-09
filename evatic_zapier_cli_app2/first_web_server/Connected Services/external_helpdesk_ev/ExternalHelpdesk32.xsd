@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schema.evatic.com/2012/10/24" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://192.168.2.186/EvaticServiceHub/ExternalHelpdesk.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="https://192.168.2.186/EvaticServiceHub/ExternalHelpdesk.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Evatic.Common.Service.DataContract.ExternalHelpdesk" />
+  <xs:element name="Echo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="textToEcho" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EchoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EchoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="taskGuid" type="ser:guid" />
+        <xs:element minOccurs="0" name="externalSystemGuid" type="ser:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schema.evatic.com/2012/10/24" minOccurs="0" name="GetResult" nillable="true" type="q1:ExternalHelpdeskDataContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ExternalHelpdeskDataContract">
+    <xs:annotation>
+      <xs:appinfo />
+      <xs:documentation>&lt;description&gt;
+            
+            &lt;/description&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActionCode1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ActionCode2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ActionCode3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ActionText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EventStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalCustomerNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalProjectNo" type="xs:int" />
+      <xs:element minOccurs="0" name="ExternalSystemGuid" type="ser:guid">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            Id used for mapping project to the external system
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ExternalTaskNo" type="xs:int" />
+      <xs:element minOccurs="0" name="InternalComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MachineGuid" nillable="true" type="ser:guid">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            Is null if not exsist in the task
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="MachineNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxActiveFromW" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MinActiveFromW" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Node" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OnHold" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Evatic.Common.Service.DataContract.ExternalHelpdesk" minOccurs="0" name="PreOrder" nillable="true" type="q2:ArrayOfExternalHelpdeskTaskPreOrderDataContract" />
+      <xs:element minOccurs="0" name="ProjectNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReciveDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ResponseDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ResponseTime" type="xs:int" />
+      <xs:element minOccurs="0" name="SolutionDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SolutionTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="SymptomCode1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SymptomCode2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SymptomCode3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SymptomText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaskGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="TaskNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q3="http://schema.evatic.com/2012/10/24" name="ExternalHelpdeskDataContract" nillable="true" type="q3:ExternalHelpdeskDataContract" />
+  <xs:element name="CreateOrUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schema.evatic.com/2012/10/24" minOccurs="0" name="projectTask" nillable="true" type="q4:ExternalHelpdeskCreateOrUpdateRequestDataContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ExternalHelpdeskCreateOrUpdateRequestDataContract">
+    <xs:annotation>
+      <xs:appinfo />
+      <xs:documentation>&lt;description&gt;
+            
+            &lt;/description&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            Email address for contcat
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            Project contact name
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ContactPhoneNummber" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            Phone nummber for the customer
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CustomerGuid" nillable="true" type="ser:guid">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            This is mandatory for creating a Task in %Evatic %Service
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ExternalCreateDate" type="xs:dateTime">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            Timestamp for External system creation date
+             &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ExternalCustomerNo" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            Used for external system customer nummber where %Evatic Customer nummber deviates.
+            The external customer nummber are stored as a property on the customer.
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ExternalProjectNo" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            Link between external system and %Evatic %Service
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ExternalSystemGuid" type="ser:guid">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            Connecting external system to imported Task.
+            This is a uniq id for tracing Task events
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ExternalTaskNo" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            If the external system has Task nummber.
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Information1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Information2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Information3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Information4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Information5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Information6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InternalComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MachineGuid" nillable="true" type="ser:guid">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            Used to add a machine to the Task.
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="MachineModelType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MachineNo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Evatic.Common.Service.DataContract.ExternalHelpdesk" minOccurs="0" name="PreOrder" nillable="true" type="q5:ArrayOfExternalHelpdeskTaskPreOrderDataContract" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReceivedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReceviedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ResonseDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ResonseTime" type="xs:int" />
+      <xs:element minOccurs="0" name="SolutionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SymptomCode1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SymptomCode2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SymptomCode3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SymptomCode4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SymptomText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaskGuid" type="ser:guid">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;        
+            If the value is present there will be an update of the project task. \n
+            If the value is not present and there is no ExternalProjectNo in %Evatic %Service database
+            there will be created a new Task.
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Titel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            1. service
+            2. helpdesk
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q6="http://schema.evatic.com/2012/10/24" name="ExternalHelpdeskCreateOrUpdateRequestDataContract" nillable="true" type="q6:ExternalHelpdeskCreateOrUpdateRequestDataContract" />
+  <xs:element name="CreateOrUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schema.evatic.com/2012/10/24" minOccurs="0" name="CreateOrUpdateResult" nillable="true" type="q7:ExternalHelpdeskCreateOrUpdateResponseDataContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ExternalHelpdeskCreateOrUpdateResponseDataContract">
+    <xs:annotation>
+      <xs:appinfo />
+      <xs:documentation>&lt;description&gt;
+            
+            &lt;/description&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerNo" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            %Evatic %Service Customer nummber
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ExternalProjectNo" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            External Project nummber
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ExternalSystemGuid" type="ser:guid">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            Identifier for the External System.
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ExternalTaskNo" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            External Task nummber
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ProjectStatus" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ProjectTaskNo" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            %Evatic %Service Project nummber and Task nummber
+            Format ProjectNo/TaskNo
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ResponseMessage" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="TaskGuid" nillable="true" type="ser:guid">
+        <xs:annotation>
+          <xs:appinfo />
+          <xs:documentation>&lt;summary&gt;
+            Uniqe id for the current task on the project
+            &lt;/summary&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q8="http://schema.evatic.com/2012/10/24" name="ExternalHelpdeskCreateOrUpdateResponseDataContract" nillable="true" type="q8:ExternalHelpdeskCreateOrUpdateResponseDataContract" />
+  <xs:element name="ListTriggerEvents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="externalSystemGuid" type="ser:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListTriggerEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schema.evatic.com/2012/10/24" minOccurs="0" name="ListTriggerEventsResult" nillable="true" type="q9:ArrayOfExternalHelpdeskTriggerEventsDataContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfExternalHelpdeskTriggerEventsDataContract">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schema.evatic.com/2012/10/24" minOccurs="0" maxOccurs="unbounded" name="ExternalHelpdeskTriggerEventsDataContract" nillable="true" type="q10:ExternalHelpdeskTriggerEventsDataContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q11="http://schema.evatic.com/2012/10/24" name="ArrayOfExternalHelpdeskTriggerEventsDataContract" nillable="true" type="q11:ArrayOfExternalHelpdeskTriggerEventsDataContract" />
+  <xs:complexType name="ExternalHelpdeskTriggerEventsDataContract">
+    <xs:annotation>
+      <xs:appinfo />
+      <xs:documentation>&lt;description&gt;
+            
+            &lt;/description&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EventGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="EventType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalSystemGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="TaskGuid" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q12="http://schema.evatic.com/2012/10/24" name="ExternalHelpdeskTriggerEventsDataContract" nillable="true" type="q12:ExternalHelpdeskTriggerEventsDataContract" />
+  <xs:element name="CloseTriggerEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schema.evatic.com/2012/10/24" minOccurs="0" name="triggerEvent" nillable="true" type="q13:ExternalHelpdeskTriggerEventsDataContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseTriggerEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CloseTriggerEventResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schema.evatic.com/2012/10/24" minOccurs="0" name="attachment" nillable="true" type="q14:ExternalHelpdeskInsertDocumentRequestDataContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ExternalHelpdeskInsertDocumentRequestDataContract">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schema.evatic.com/2012/10/24" base="q15:DocumentBaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ExternalProjectNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExternalSystemGuid" type="ser:guid" />
+          <xs:element minOccurs="0" name="TaskGuid" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q16="http://schema.evatic.com/2012/10/24" name="ExternalHelpdeskInsertDocumentRequestDataContract" nillable="true" type="q16:ExternalHelpdeskInsertDocumentRequestDataContract" />
+  <xs:complexType name="DocumentBaseDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateCreated" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocumentGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="DocumentSize" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="File" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q17="http://schema.evatic.com/2012/10/24" name="DocumentBaseDataContract" nillable="true" type="q17:DocumentBaseDataContract" />
+  <xs:element name="AddDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schema.evatic.com/2012/10/24" minOccurs="0" name="AddDocumentResult" nillable="true" type="q18:ExternalHelpdeskInsertDocumentResponseDataContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ExternalHelpdeskInsertDocumentResponseDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentGuid" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ResponseMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaskGuid" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q19="http://schema.evatic.com/2012/10/24" name="ExternalHelpdeskInsertDocumentResponseDataContract" nillable="true" type="q19:ExternalHelpdeskInsertDocumentResponseDataContract" />
+</xs:schema>
